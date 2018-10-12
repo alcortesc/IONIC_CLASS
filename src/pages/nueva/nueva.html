@@ -14,5 +14,15 @@
 
 
 <ion-content padding>
-
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel architecto placeat asperiores incidunt voluptas earum quis aspernatur temporibus explicabo. Maxime sint ipsum iure perspiciatis dignissimos adipisci esse perferendis, animi non.</p>
+ <ion-list>
+   <ion-item *ngFor="let val of users">
+    <!-- {{val.name.first}} -->
+     <ion-avatar item-start>
+      <img [src] = "val.picture.medium">
+     </ion-avatar>
+     <h2>{{val.name.first | uppercase}} {{val.name.last}}</h2>
+     <p> {{val.email}} </p>
+   </ion-item>
+ </ion-list>
 </ion-content>

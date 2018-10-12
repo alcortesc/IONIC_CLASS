@@ -9,6 +9,9 @@ import { HomePage } from '../pages/home/home';
 import { AcercaPage } from '../pages/acerca/acerca';
 import { NuevaPage } from '../pages/nueva/nueva';
 import { AyudaPage } from '../pages/ayuda/ayuda';
+import { UserServiceProvider } from '../providers/user-service/user-service';
+import { HttpClientModule } from '@angular/common/http';
+import { ContaminationPage } from '../pages/contamination/contamination';
 
 @NgModule({
   declarations: [
@@ -16,10 +19,12 @@ import { AyudaPage } from '../pages/ayuda/ayuda';
     HomePage,
     AcercaPage,
     NuevaPage,
-    AyudaPage
+    AyudaPage,
+    ContaminationPage
   ],
     imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -28,12 +33,14 @@ import { AyudaPage } from '../pages/ayuda/ayuda';
     HomePage,
     AcercaPage,
     NuevaPage,
-    AyudaPage    
+    AyudaPage,
+    ContaminationPage    
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserServiceProvider
   ]
 })
 export class AppModule {}

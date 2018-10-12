@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { AcercaPage } from '../acerca/acerca';
 import { NuevaPage } from '../nueva/nueva';
 import { AyudaPage } from '../ayuda/ayuda';
+import { ContaminationPage } from '../contamination/contamination';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -12,8 +14,11 @@ export class HomePage {
   acerca = AcercaPage;
   nueva = NuevaPage;
   ayuda = AyudaPage;
-  constructor(public navCtrl: NavController) {
-    
+  contamination = ContaminationPage;
+  constructor(
+    public navCtrl: NavController,
+    public confirmar: AlertController
+  ) {
   }
   iraNuevapagina(){
     console.log("Click a nueva pagina");
@@ -25,5 +30,32 @@ export class HomePage {
     this.navCtrl.setRoot(this.ayuda)
   }
 
+  iraContamination(){
+    console.log("Click a Ayuda");
+    //this.navCtrl.push(this.contamination)
+    let  alert = this.confirmar.create(
+      {
+        title:'confirmar',
+        message: 'Esta seguro que desea confirmar ?',
+        buttons: [
+          {
+            text: 'No',
+            role: 'cancel',
+            handler: () => {   //permite cancelar y adicionalmente hace una funcion
+              console.log('Escogio NO');
+           }
+          },
+          {
+            text: 'SI',
+            handler: () => {   //permite cancelar y adicionalmente hace una funcion
+              console.log("Click Contaminacion");
+              this.navCtrl.push(this.contamination)
+          }
+        }
+        ]
+      }
+    );
+    alert.present();
+  }
 
 }
