@@ -4,6 +4,7 @@ import { AcercaPage } from '../acerca/acerca';
 import { NuevaPage } from '../nueva/nueva';
 import { AyudaPage } from '../ayuda/ayuda';
 import { ContaminationPage } from '../contamination/contamination';
+import { FormularioPage } from '../formulario/formulario';
 import { AlertController } from 'ionic-angular';
 
 @Component({
@@ -15,6 +16,8 @@ export class HomePage {
   nueva = NuevaPage;
   ayuda = AyudaPage;
   contamination = ContaminationPage;
+  formulario = FormularioPage;
+
   constructor(
     public navCtrl: NavController,
     public confirmar: AlertController
@@ -57,5 +60,11 @@ export class HomePage {
     );
     alert.present();
   }
+
+  iraFormulario(){
+    console.log("Click a Formulario");
+    this.navCtrl.push(this.formulario)
+  }
+
 
 }

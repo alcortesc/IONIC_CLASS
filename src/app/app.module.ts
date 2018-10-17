@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -12,6 +13,9 @@ import { AyudaPage } from '../pages/ayuda/ayuda';
 import { UserServiceProvider } from '../providers/user-service/user-service';
 import { HttpClientModule } from '@angular/common/http';
 import { ContaminationPage } from '../pages/contamination/contamination';
+import { FormularioPage } from '../pages/formulario/formulario';
+import { EnviarPage } from '../pages/enviar/enviar';
+
 
 @NgModule({
   declarations: [
@@ -20,12 +24,16 @@ import { ContaminationPage } from '../pages/contamination/contamination';
     AcercaPage,
     NuevaPage,
     AyudaPage,
-    ContaminationPage
+    ContaminationPage,
+    FormularioPage,
+    EnviarPage
   ],
     imports: [
     BrowserModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -34,7 +42,9 @@ import { ContaminationPage } from '../pages/contamination/contamination';
     AcercaPage,
     NuevaPage,
     AyudaPage,
-    ContaminationPage    
+    ContaminationPage,
+    FormularioPage,
+    EnviarPage    
   ],
   providers: [
     StatusBar,

@@ -23,4 +23,10 @@ export class UserServiceProvider {
     return this.http.get('https://shielded-savannah-22643.herokuapp.com/contamination_levels.json');
   }
 
+  enviarChimenea(valor: any){
+    this.http.post("https://mysterious-basin-67013.herokuapp.com/entities",valor).subscribe(
+    data => {console.log(data)},
+    error=> {console.log(error)}
+    )
+  }
 }
