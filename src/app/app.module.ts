@@ -4,6 +4,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -15,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContaminationPage } from '../pages/contamination/contamination';
 import { FormularioPage } from '../pages/formulario/formulario';
 import { EnviarPage } from '../pages/enviar/enviar';
-
+import { MapaPage } from '../pages/mapa/mapa';
+import { CamaraPage } from '../pages/camara/camara';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { EnviarPage } from '../pages/enviar/enviar';
     AyudaPage,
     ContaminationPage,
     FormularioPage,
-    EnviarPage
+    EnviarPage,
+    MapaPage,
+    CamaraPage
   ],
     imports: [
     BrowserModule,
@@ -44,13 +49,18 @@ import { EnviarPage } from '../pages/enviar/enviar';
     AyudaPage,
     ContaminationPage,
     FormularioPage,
-    EnviarPage    
+    EnviarPage,
+    MapaPage,
+    CamaraPage    
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserServiceProvider
+    UserServiceProvider,
+
   ]
 })
 export class AppModule {}

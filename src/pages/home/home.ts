@@ -6,6 +6,8 @@ import { AyudaPage } from '../ayuda/ayuda';
 import { ContaminationPage } from '../contamination/contamination';
 import { FormularioPage } from '../formulario/formulario';
 import { AlertController } from 'ionic-angular';
+import { MapaPage } from '../mapa/mapa';
+import { CamaraPage } from '../camara/camara';
 
 @Component({
   selector: 'page-home',
@@ -17,7 +19,8 @@ export class HomePage {
   ayuda = AyudaPage;
   contamination = ContaminationPage;
   formulario = FormularioPage;
-
+  mapa = MapaPage;
+  camara = CamaraPage
   constructor(
     public navCtrl: NavController,
     public confirmar: AlertController
@@ -66,5 +69,14 @@ export class HomePage {
     this.navCtrl.push(this.formulario)
   }
 
+  iraMapa(){
+    console.log("Click a Mapa");
+    this.navCtrl.push(this.mapa)
+  }
+
+  iraCamara(){
+    console.log("Click a Camara");
+    this.navCtrl.push(this.camara)
+  }
 
 }
